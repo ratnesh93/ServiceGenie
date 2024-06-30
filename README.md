@@ -19,3 +19,31 @@ Gap in content driven customer service. Issues:
 - Increase in timely content driven message to customers, will lead to high customer retention. 
 - Timely building features for issues which are faced by customers.
 
+```mermaid
+flowchart LR
+    subgraph Customer Document Processing
+        A[fa:fa-file Customer Documents] -->|Text Processing| T(fa:fa-scissors Text Processor)
+        T -->|Processed Text| B(Text Chunks)
+        B -->|Generate Embeddings| C(Text Embeddings)
+        C -->|Save to Database| D[fa:fa-database Vector DB]
+    end
+    subgraph Customer Query Processing
+        E[Customer Queries] -->|Text Processing| T
+        T-->|Processed Text| F(Text Chunks)
+        F -->|Generate Embeddings| G(Text Embeddings)
+        G -->|k Nearest Neighbours Search| D[fa:fa-database Vector DB]
+        D -->|Searched Vectors| R(User Content - K Nearest Neighbours)
+    end
+    subgraph Content Generation
+    R --> |LLM Model| M(Azure OpenAI)
+    M --> |Queries Processing| Q(Customer Query Output)
+    M --> |Financial Analysis| I(Customer Financial Query GUI)
+    M --> |Marketing Analysis| J(Cross Product Sell)
+    end
+    subgraph Marketing Input
+    MI --> |Marketting context| R
+    end
+    subgraph Financial Input
+    FI --> |Financial context| R
+    end
+```
