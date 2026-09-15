@@ -1,23 +1,21 @@
 # ServiceGenie
-Bulding Customer Service using RAG and LLM
 
-# Problem Statement
+**Building customer service with RAG and LLMs** — architecture and problem framing for a content-driven support platform.
 
-Gap in content driven customer service. Issues:
-- Increase in customer base and increase in the customer queries.
-- High cost to create content driven customer service. High man power as well high resources and time. 
-- Losing good customers due to poor communications and hence losing potential customer and business.
-- Lack of timely response to customers.
-- Lack of common platform to know customer’s issues.
+> This repository currently documents the system design (diagrams and problem statement). Implementation code may be added in follow-up repos.
 
+## Problem
 
-# Why are we solving this Problem statement?
+Growing customer bases increase support volume, but content-driven answers are expensive to produce and maintain. Gaps lead to slow responses, inconsistent messaging, and churn.
 
-- Enhance the customer service experience by leveraging generative AI technologies to provide personalized, efficient, and proactive support across multiple channels. 
-- Automating customer service will reduce cost.
-- With increase in customer queries, there is need to increase the resources, AI can help to reduce the burden on the existing resources.
-- Increase in timely content driven message to customers, will lead to high customer retention. 
-- Timely building features for issues which are faced by customers.
+## Goals
+
+- Personalized, efficient support across channels using generative AI
+- Lower cost per ticket by automating retrieval-augmented responses
+- Faster feature iteration from aggregated customer issue signals
+- Higher retention through timely, accurate answers
+
+## High-level architecture
 
 ```mermaid
 flowchart LR
@@ -47,3 +45,15 @@ flowchart LR
     FI --> |Financial context| R
     end
 ```
+
+## Planned stack (from design)
+
+| Component | Technology |
+|-----------|------------|
+| Embeddings & retrieval | Vector database, k-NN search |
+| Generation | Azure OpenAI |
+| Domains | Support Q&A, financial insights, cross-sell |
+
+## Author
+
+[Ratnesh Chandak](https://github.com/ratnesh93)
